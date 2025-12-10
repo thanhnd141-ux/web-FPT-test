@@ -1,0 +1,13 @@
+/* Form base css */
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container-fluid-form {
+    height: 800px !important;
+}
+
+.wrapper-form {
+    width: 420px;
+}

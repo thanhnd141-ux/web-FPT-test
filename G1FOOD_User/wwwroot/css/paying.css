@@ -1,0 +1,151 @@
+.form-customer-info {
+    margin-bottom: 24px;
+    /*margin-right: 16px;*/
+    max-width: 100%;
+}
+
+.wrapper-form {
+    margin-top: 0px !important;
+    width: 100% !important;
+}
+
+.form-paying .container-fluild .container {
+    background-color: var(--background-color);
+    padding: 14px;
+}
+
+.form-customer-paying .form-group input {
+    margin-top: 6px;
+    width: 10px;
+    height: 10px;
+}
+
+.form-customer-paying {
+    display: flex;
+}
+
+    .form-customer-paying .form-group {
+        margin-top: 8px;
+        margin-right: 12px;
+    }
+
+.form-paying-btn {
+    margin-top: 24px;
+}
+
+/* Table product */
+.table-img a img {
+    --ing-table-height: 68px;
+    width: 68px !important;
+    height: var(--ing-table-height) !important;
+}
+
+.table-header {
+    font-size: 30px !important;
+}
+
+.table-voucher-label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.table-number {
+    text-align: right;
+    padding-right: 12px;
+}
+
+.btn-primary, .btn-main {
+    width: max-content !important;
+    padding: 0px;
+}
+
+.btn-main {
+    margin-left: 8px;
+}
+
+.form-paying-btn-group {
+    display: flex;
+}
+
+.voucher-container {
+    margin: 28px 0;
+}
+
+.voucher-form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.voucher-form-label {
+    font-weight: bold;
+}
+
+.voucher-total {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.btn-apply {
+    padding: 4px 18px !important;
+    font-size: 18px !important;
+}
+
+.footer {
+    position: relative !important;
+}
+
+.voucher-form {
+    position: absolute;
+    right: 500px;
+    top: -450px;
+}
+
+.voucher-from-input {
+    padding-left: 4px;
+    width: 100%;
+    margin-left: 8px;
+}
+
+.table-total-sub-group {
+    display: flex;
+    align-items: center;
+}
+
+
+.table-label {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #163C50;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
+    .btn-primary a {
+        font-size: 18px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-primary:hover {
+        cursor: pointer;
+        transition: 0.35s linear;
+        background-color: #163C50;
+    }
+
+    .btn-primary a:hover {
+        color: white;
+    }

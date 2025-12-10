@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DataAccess.DTO.AccountDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid wrapper">
+    <div class="container-fluid table-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6 class="table-header">MANAGE USER</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped text-center align-middle">
+                        <thead class="table-heading">
+                            <tr>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountId)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountName)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountEmail)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountStatus)
+                                </th>
+                                <th class="table-heading-text">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="table-order">
+                                        @Html.DisplayFor(modelItem => item.AccountId)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountName)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountEmail)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountStatus)
+                                    </td>
+                                    <td class="table-btn">
+                                        @Html.ActionLink("Details", "Details", new { id = item.AccountId })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

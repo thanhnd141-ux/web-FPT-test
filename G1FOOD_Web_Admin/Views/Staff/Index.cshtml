@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DataAccess.DTO.AccountDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/js/bootstrap.js" type="text/javascript">
+    <link rel="stylesheet" href="~/css/base.css" type="text/css">
+    <title>Manage-order</title>
+</head>
+
+<div class="container-fluid wrapper">
+    <div class="container-fluid table-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6 class="table-header">MANAGE STAFF</h6>
+                    <div class="table-control-btn-group">
+                        <button class="btn-primary btn-add">
+                            <i class="fa-solid fa-plus"></i>
+                            <a asp-action="Create">Create New</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped text-center align-middle">
+                        <thead class="table-heading">
+                            <tr>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountId)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountName)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountEmail)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.AccountStatus)
+                                </th>
+                                <th class="table-heading-text">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="table-order">
+                                        @Html.DisplayFor(modelItem => item.AccountId)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountName)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountEmail)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.AccountStatus)
+                                    </td>
+                                    <td class="table-btn">
+                                        @Html.ActionLink("Details", "Details", new { id = item.AccountId })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

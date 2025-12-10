@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model IEnumerable<DataAccess.DTO.CartDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/font-awesome/js/all.js" type="text/javascript">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/js/bootstrap.js" type="text/javascript">
+    <link rel="stylesheet" href="~/css/base.css" type="text/css">
+    <link rel="stylesheet" href="~/css/cart.css" type="text/css">
+    <title>Login</title>
+</head>
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<div class="container-fluid wrapper">
+    <div class="container-fluid table-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="table-header">
+                        CART
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped text-center align-content-center">
+                        <thead class="table-heading">
+                            <tr>
+                                <th class="table-heading-text table-order">
+                                    ID
+                                    </t>
+                                <th class="table-heading-text">
+                                    Image
+                                </th>
+                                <th class="table-heading-text">
+                                    Name
+                                </th>
+                                <th class="table-heading-text">
+                                    Quantity
+                                </th>
+                                <th class="table-heading-text">
+                                    Origin
+                                </th>
+                                <th class="table-heading-text">
+                                    Price
+                                </th>
+                                <th class="table-heading-text">
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="table-order">
+                                        @Html.DisplayFor(modelItem => item.CartId)
+                                    </td>
+                                    <td class="table-img">
+                                        <img class="table-img" src="@item.ProductImage" alt="">
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.ProductName)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.CartQuantity)
+                                    </td>
+                                    <td class="table-price">
+                                        @{
+                                            var discountedPrice = item.ProductPrice * (100 - item.ProductSalePercent) / 100;
+                                        }
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => discountedPrice)
+                                    </td>
+                                    <td class="table-btn">
+                                        <form method="post" asp-action="Delete" asp-controller="Cart">
+                                            <input type="hidden" name="accountID" value="@Context.Session.GetString("AccountID")" />
+                                            <input type="hidden" name="id" value="@item.CartId" />
+                                            <button type="submit" class="btn-primary" onclick="return showMessageDelete();">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row cart-btn-group">
+                <div class="col-xs-12 col-md-2">
+                    <button type="button" class="btn-primary btn-back-home">
+                        <a asp-action="Index">Back to List</a>
+                    </button>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <div class="table-total-group">
+                        <div class="table-total-sub-group">
+                            <h4 class="table-label">Total:</h4>
+                            <span class="table-total"><span>@ViewBag.ToalPrice</span>đ</span>
+                        </div>
+                        <form method="get" asp-action="Paying" asp-controller="Paying">
+                            <input type="hidden" name="id" value="@Context.Session.GetString("AccountID")" />
+                            <button class="btn-primary btn-paying" type="submit">Paying</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showMessageDelete() {
+        var result = confirm("Are you sure to delete this product?");
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>

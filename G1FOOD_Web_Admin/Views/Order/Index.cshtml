@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DataAccess.DTO.OrderDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/js/bootstrap.js" type="text/javascript">
+    <link rel="stylesheet" href="~/css/base.css" type="text/css">
+    <title>Manage-order</title>
+</head>
+<div class="container-fluid wrapper">
+    <div class="container-fluid table-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h6 class="table-header">MANAGE ORDER</h6>
+                    <table class="table table-striped text-center align-middle">
+                        <thead class="table-heading">
+                            <tr>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.OrderId)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.BuyerFullName)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.OrderDate)
+                                </th>
+                                <th class="table-heading-text">
+                                    @Html.DisplayNameFor(model => model.OrderStatus)
+                                </th>
+                                <th class="table-heading-text">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="table-order">
+                                        @Html.DisplayFor(modelItem => item.OrderId)
+                                    </td>
+                                    <td class="table-name">
+                                        @Html.DisplayFor(modelItem => item.BuyerFullName)
+                                    </td>
+                                    <td class="table-quantity">
+                                        @Html.DisplayFor(modelItem => item.OrderDate)
+                                    </td>
+                                    <td class="table-quantity">
+                                        @Html.DisplayFor(modelItem => item.OrderStatus)
+                                    </td>
+                                    <td class="table-btn">
+                                        @Html.ActionLink("Details", "Details", new {  id=item.OrderId  })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

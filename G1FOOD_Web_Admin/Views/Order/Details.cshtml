@@ -1,0 +1,125 @@
+﻿@model DataAccess.DTO.OrderDTO
+@using DataAccess.DTO;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Paying";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/base.css" type="text/css">
+    <title>Login</title>
+</head>
+<div class="container-fluid wrapper">
+
+    <div class="container-fluid table-container">
+        <div class="container">
+            <form asp-action="Paying">
+            <div class="row">
+                <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-control-group">
+                            <input asp-for="AccountId" hidden value="@Context.Session.GetString("AccountID")" />
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="BuyerFullName" class="form-text-label"></label>
+                            <input asp-for="BuyerFullName" value="@ViewBag.BuyerFullName" disabled />
+                            <span asp-validation-for="BuyerFullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="BuyerPhone" class="form-text-label"></label>
+                            <input asp-for="BuyerPhone" value="@ViewBag.BuyerPhone" disabled />
+                            <span asp-validation-for="BuyerPhone" class="text-danger"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="BuyerAddress" class="form-text-label"></label>
+                            <input asp-for="BuyerAddress" value="@ViewBag.BuyerAddress" disabled />
+                            <span asp-validation-for="BuyerAddress" class="text-danger"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="OrderDate" class="form-text-label"></label>
+                            <input asp-for="OrderDate" value="@ViewBag.OrderDate" type="text" disabled>
+                            <span asp-validation-for="OrderDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="OrderStatus" class="form-text-label"></label>
+                            <input asp-for="OrderStatus" value="@ViewBag.OrderStatus" disabled />
+                            <span asp-validation-for="OrderStatus" class="text-danger"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label asp-for="OrderNote" class="form-text-label"></label>
+                            <input asp-for="OrderNote" value="@ViewBag.Note" disabled />
+                            <span asp-validation-for="OrderNote" class="text-danger"></span>
+                        </div>
+                </div>
+            </div>
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6 class="table-header">ORDER DETAIL</h6>
+                        <div class="table-total-sub-group">
+                            <h4 class="table-label">Total:</h4>
+                            <span class="table-total"><span>@ViewBag.ToalPrice</span>đ</span>
+                        </div>
+                        <table class="table table-striped text-center align-middle">
+                            <thead class="table-heading">
+                                <tr>
+                                    <th class="table-heading-text">
+                                        ID
+                                    </th>
+                                    <th class="table-heading-text">
+                                        Image
+                                    </th>
+                                    <th class="table-heading-text">
+                                        Name
+                                    </th>
+                                    <th class="table-heading-text">
+                                        Quantity
+                                    </th>
+                                    <th class="table-heading-text">
+                                        Price
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (OrderDetailsDTO item in ViewBag.OrderDetails)
+                                {
+                                    <tr>
+                                        <td class="table-order">
+                                            @Html.DisplayFor(modelItem => item.OrderDid)
+                                        </td>
+                                        <td class="table-img">
+                                            <img src="@item.ProductImage" alt="">
+                                        </td>
+                                        <td class="table-sale">
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                        </td>
+                                        <td class="table-sale">
+                                            @Html.DisplayFor(modelItem => item.OrderDquantity)
+                                        </td>
+                                        <td class="table-sale">
+                                            @{
+                                                var discountedPrice = item.OrderDprice;
+                                            }
+                                            @Html.DisplayFor(modelItem => discountedPrice)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

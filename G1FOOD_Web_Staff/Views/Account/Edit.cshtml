@@ -1,0 +1,60 @@
+﻿@model DataAccess.DTO.AccountDTO
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>AccountDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountId" class="control-label"></label>
+                <input asp-for="AccountId" class="form-control" />
+                <span asp-validation-for="AccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountEmail" class="control-label"></label>
+                <input asp-for="AccountEmail" class="form-control" />
+                <span asp-validation-for="AccountEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountName" class="control-label"></label>
+                <input asp-for="AccountName" class="form-control" />
+                <span asp-validation-for="AccountName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountAddress" class="control-label"></label>
+                <input asp-for="AccountAddress" class="form-control" />
+                <span asp-validation-for="AccountAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountPhone" class="control-label"></label>
+                <input asp-for="AccountPhone" class="form-control" />
+                <span asp-validation-for="AccountPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountBirthDay" class="control-label"></label>
+                <input asp-for="AccountBirthDay" class="form-control" type="date" />
+                <span asp-validation-for="AccountBirthDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountStartDate" class="control-label"></label>
+                <input asp-for="AccountStartDate" class="form-control" type="date" />
+                <span asp-validation-for="AccountStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

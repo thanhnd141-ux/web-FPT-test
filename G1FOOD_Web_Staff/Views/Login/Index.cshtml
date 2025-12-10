@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/font-awesome/js/all.js" type="text/javascript">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="~/lib/bootsstrap/dist/js/bootstrap.js" type="text/javascript">
+    <link rel="stylesheet" href="~/css/login.css" type="text/css">
+    <title>Login</title>
+</head>
+<div class="container-fluid wrapper">
+    <div class="container-fluid-form">
+        <div class="container wrapper-form">
+            <form method="POST" action="Login">
+                @Html.AntiForgeryToken()
+                <div class="form-heading-group">
+                    <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    <h2 class="form-heading ">LOGIN</h2>
+                    <p class="form-text-caption">Please login your account to shopping!</p>
+                </div>
+                <div class="form-control-group">
+                    <label class="form-text-label" for="email">Email:</label>
+                    <input id="email" name="email" type="email" placeholder="levana@gmail.com" required />
+                </div>
+                <div class="form-control-group">
+                    <label for="password" class="form-text-label">Password:</label>
+                    <input id="password" name="password" type="password" placeholder="aA@admin123" required />
+                </div>
+                <div class="form-control-group form-caption">
+                    <div class="form-text-caption">
+                        Please check your information correctly!
+                    </div>
+                </div>
+                @if (TempData.ContainsKey("ErrorMessage"))
+                {
+                    <div class="error-message">@TempData["ErrorMessage"]</div>
+                }
+                <div class="form-btn-group">
+                    <button class="btn-primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,79 @@
+﻿@model DataAccess.DTO.AccountDTO
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/base.css" type="text/css">
+    <link rel="stylesheet" href="~/css/register.css" type="text/css">
+</head>
+
+<div class="container-fluid wrapper">
+    <div class="container-fluid-form">
+        <div class="container wrapper-form">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-heading-group">
+                    <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+                    <h2 class="form-heading">REGISTER</h2>
+                    <p class="form-text-caption">Please register your account to shopping!</p>
+                </div>
+                <div class="form-control-group">
+                    <label asp-for="AccountName" class="form-text-label"></label>
+                    <input asp-for="AccountName" placeholder="Lê văn A" required/>
+                    <span asp-validation-for="AccountName" class="text-danger"></span>
+                </div>
+                <div class="form-control-group" style="display: flex; margin-bottom: 0px">
+                    <div class="form-control-group" style="width: 48%">
+                        <label asp-for="AccountEmail" class="form-text-label"></label>
+                        <input asp-for="AccountEmail" placeholder="levana@gmail.com" required />
+                        <span asp-validation-for="AccountEmail" class="text-danger"></span>
+                    </div>
+                    <div class="form-control-group" style="margin-left: 6px; width: 52%">
+                        <label asp-for="AccountPhone" class="form-text-label"></label>
+                        <input asp-for="AccountPhone" placeholder="0352016906" required />
+                        <span asp-validation-for="AccountPhone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-control-group" style="display: flex; margin-bottom: 0px">
+                    <div class="form-control-group" style="width: 48%">
+                        <label asp-for="AccountPassword" class="form-text-label"></label>
+                        <input asp-for="AccountPassword" placeholder="aA@abc123" required />
+                        <span asp-validation-for="AccountPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-control-group"style="margin-left: 6px; width: 52%">
+                        <label asp-for="AccountBirthDay" class="form-text-label"></label>
+                        <input asp-for="AccountBirthDay" type="date" required />
+                        <span asp-validation-for="AccountBirthDay" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-control-group">
+                    <label asp-for="AccountAddress" class="form-text-label"></label>
+                    <input asp-for="AccountAddress" placeholder="An bình, ninh kiều, cần thơ" />
+                    <span asp-validation-for="AccountAddress" class="text-danger"></span>
+                </div>
+                <div class="form-control-group form-caption">
+                    <div class="form-text-caption">
+                        Please check your information correctly!
+                    </div>
+                </div>
+                @if (TempData.ContainsKey("ErrorMessage"))
+                {
+                    <div class="error-message">@TempData["ErrorMessage"]</div>
+                }
+                <div class="form-control-group">
+                    <input type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

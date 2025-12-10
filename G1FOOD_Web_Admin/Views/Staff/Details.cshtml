@@ -1,0 +1,52 @@
+﻿@model DataAccess.DTO.AccountDTO
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid wrapper">
+    <div class="container-fluid container-fluid-form">
+        <div class="wrapper-form text-left">
+            <div class="form-heading-group">
+                <i class="fa-solid fa-clipboard-user fa-circle"></i>
+                <h2 class="form-heading">STAFF PROFILE</h2>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label"> @Html.DisplayNameFor(model => model.AccountId):</label>
+                <label>@Html.DisplayFor(model => model.AccountId)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label"> @Html.DisplayNameFor(model => model.AccountEmail):</label>
+                <label>@Html.DisplayFor(model => model.AccountEmail)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label">@Html.DisplayNameFor(model => model.AccountStatus):</label>
+                <label> @Html.DisplayFor(model => model.AccountStatus)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label"> @Html.DisplayNameFor(model => model.AccountName):</label>
+                <label> @Html.DisplayFor(model => model.AccountName)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label">  @Html.DisplayNameFor(model => model.AccountAddress):</label>
+                <label>@Html.DisplayFor(model => model.AccountAddress)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label">@Html.DisplayNameFor(model => model.AccountPhone):</label>
+                <label>@Html.DisplayFor(model => model.AccountPhone)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label">@Html.DisplayNameFor(model => model.AccountBirthDay):</label>
+                <label>@Html.DisplayFor(model => model.AccountBirthDay)</label>
+            </div>
+            <div class="form-control-group">
+                <label class="form-text-label"> @Html.DisplayNameFor(model => model.AccountStartDate):</label>
+                <label>@Html.DisplayFor(model => model.AccountStartDate)</label>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" name="button" class="btn-primary"> <a asp-action="Index">Back to List</a></button>
+            </div>
+        </div>
+    </div>
+</div>

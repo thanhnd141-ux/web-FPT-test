@@ -1,0 +1,186 @@
+
+/* Table base css */
+.table-container {
+    background-color: var(--background-color);
+    padding: 100px 0;
+}
+
+    .table-container .container {
+        border-radius: 4px;
+        padding: 36px;
+        background-color: var(--background-color);
+        box-shadow: 1px 1px 4px 2px rgb(107, 107, 116);
+        box-sizing: border-box;
+    }
+
+.table-heading {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+    padding: 0px 24px;
+}
+
+.table-header {
+    background-color: var(--background-inside-color) !important;
+    color: black;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+.cart-btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 36px;
+}
+
+.table-total-sub-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-paying {
+    margin-top: 12px;
+}
+
+.table-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+
+.table-name a {
+    text-decoration: none;
+    color: #333;
+}
+
+.table-order, .table-name, .table-price {
+    font-weight: bold;
+}
+
+.table-btn a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.table-btn-edit {
+    margin-right: 16px;
+    color: var(--primary-color) !important;
+}
+
+.table-description {
+    max-width: 200px;
+}
+
+.table-label, .table-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.table-description {
+    max-width: 180px;
+}
+
+    .table-description span {
+        display: block;
+        --line-height: 20px;
+        line-height: var(--line-height);
+        height: var(--line-height);
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+.table-total {
+    font-size: 20px;
+    color: var(--main-color);
+}
+
+.table-row-no-product {
+    font-weight: bold;
+}
+
+.table-control-btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+/* Sort form */
+.sort-form {
+    display: flex;
+    align-items: baseline;
+}
+
+.sort-form-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 12px;
+    color: var(--text-color);
+}
+
+.sort-form select {
+    height: 42px;
+    border: none;
+    padding: 0px 6px;
+    border-radius: 4px;
+    color: black;
+}
+
+.btn-group-search-add, .search-group {
+    display: flex;
+}
+
+.total-quantity-group {
+    display: flex;
+    margin-left: 24px;
+    position: relative;
+}
+
+    .total-quantity-group::before {
+        display: block;
+        content: "";
+        width: 2px;
+        height: 32px;
+        background-color: #555;
+        top: 10px;
+        left: -12px;
+        position: absolute;
+    }
+
+.search-group {
+    margin-left: 12px;
+}
+
+    .search-group input {
+        width: 200px;
+        border-radius: 4px;
+        padding-left: 8px;
+        border: none;
+        box-shadow: 1px 1px 1px 1px #999;
+    }
+
+.total-quantity {
+    width: 60px;
+    margin-left: 12px;
+    padding: 4px 0;
+    margin-top: 10px;
+    height: fit-content;
+}
+
+.detail-table-group {
+    display: flex;
+    justify-content: center;
+}
+
+    .detail-table-group button {
+        width: 120px;
+        margin-right: 12px;
+    }
