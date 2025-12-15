@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\G1FOOD_Web_Admin.props" />
-</Project>
